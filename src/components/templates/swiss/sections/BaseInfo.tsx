@@ -70,21 +70,21 @@ const BaseInfo = ({ basic = {} as BasicInfo, globalSettings, template }: BaseInf
     // 瑞士风格全新的不对称排版样式，完全基于 Framer Motion 实现丝滑的动态排版交互
     const layoutStyles = {
         left: {
-            container: "flex flex-col gap-3 w-full items-start justify-start",
+            container: "flex flex-col gap-4 w-full items-start justify-start",
             headerRow: "flex items-center gap-6 w-full text-left",
             nameTitle: "flex flex-col min-w-0 flex-1 relative pl-5",
             accentBar: "absolute left-0 top-1.5 bottom-1.5 w-1 rounded-sm",
             cardWrapper: "flex flex-wrap gap-2 w-full justify-start mt-0"
         },
         right: {
-            container: "flex flex-col gap-3 w-full items-end justify-start",
+            container: "flex flex-col gap-4 w-full items-end justify-start",
             headerRow: "flex flex-row-reverse items-center gap-6 w-full text-right",
             nameTitle: "flex flex-col min-w-0 flex-1 relative pr-5",
             accentBar: "absolute right-0 top-1.5 bottom-1.5 w-1 rounded-sm",
             cardWrapper: "flex flex-wrap gap-2 w-full justify-end mt-0"
         },
         center: {
-            container: "flex flex-col gap-3 w-full items-center justify-start text-center",
+            container: "flex flex-col gap-4 w-full items-center justify-start text-center",
             headerRow: "flex flex-col items-center gap-4 w-full",
             nameTitle: "flex flex-col items-center min-w-0 w-full relative pb-4",
             accentBar: "absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 rounded-sm",

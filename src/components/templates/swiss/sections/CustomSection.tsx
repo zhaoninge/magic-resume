@@ -25,7 +25,7 @@ const CustomSection = ({ sectionId, title, items, globalSettings, showTitle = tr
         <SectionWrapper sectionId={sectionId} style={{ marginTop: `${globalSettings?.sectionSpacing || 24}px` }}>
             <SectionTitle title={title} type="custom" globalSettings={globalSettings} showTitle={showTitle} />
             <AnimatePresence mode="popLayout">
-                <div className="flex flex-col gap-6" style={{ marginTop: `${globalSettings?.paragraphSpacing || 16}px` }}>
+                <div className="flex flex-col gap-4" style={{ marginTop: `${globalSettings?.paragraphSpacing || 16}px` }}>
                     {visibleItems.map((item) => (
                         <motion.div key={item.id} layout="position" className="group">
                             {/* 不对称网格对齐头部 */}
@@ -65,7 +65,7 @@ const CustomSection = ({ sectionId, title, items, globalSettings, showTitle = tr
 
                             {/* 自定义描述：移除 text-justify 修复列表小点拉伸 bug */}
                             {item.description && (
-                                <motion.div layout="position" className="relative pl-4 mt-2.5">
+                                <motion.div layout="position" className="relative pl-4 mt-1.5">
                                     <div 
                                         className="absolute left-0 top-1 bottom-1 w-[1.5px] opacity-20 group-hover:opacity-100 transition-opacity"
                                         style={{ backgroundColor: themeColor }}

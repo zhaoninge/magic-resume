@@ -13,8 +13,8 @@ export const swissConfig: ResumeTemplate = {
     text: "#0f172a",
   },
   spacing: {
-    sectionGap: 28,
-    itemGap: 18,
+    sectionGap: 18,
+    itemGap: 10,
     contentPadding: 32,
   },
   basic: {

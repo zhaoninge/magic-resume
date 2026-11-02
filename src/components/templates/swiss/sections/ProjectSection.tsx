@@ -24,7 +24,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ projects, globalSetting
     return (
         <SectionWrapper sectionId="projects" style={{ marginTop: `${globalSettings?.sectionSpacing || 24}px` }}>
             <SectionTitle type="projects" globalSettings={globalSettings} showTitle={showTitle} />
-            <motion.div layout="position" className="flex flex-col gap-6" style={{ marginTop: `${globalSettings?.paragraphSpacing || 16}px` }}>
+            <motion.div layout="position" className="flex flex-col gap-4" style={{ marginTop: `${globalSettings?.paragraphSpacing || 16}px` }}>
                 <AnimatePresence mode="popLayout">
                     {visibleProjects.map((project) => {
                         const projectLink = getProjectLinkMeta(project, {
@@ -84,7 +84,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ projects, globalSetting
 
                                 {/* 项目描述内容 */}
                                 {project.description && (
-                                    <motion.div layout="position" className="relative pl-4 mt-2.5">
+                                    <motion.div layout="position" className="relative pl-4 mt-1.5">
                                         <div 
                                             className="absolute left-0 top-1 bottom-1 w-[1.5px] opacity-20 group-hover:opacity-100 transition-opacity"
                                             style={{ backgroundColor: themeColor }}

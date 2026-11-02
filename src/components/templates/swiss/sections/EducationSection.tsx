@@ -24,7 +24,7 @@ const EducationSection = ({ education, globalSettings, showTitle = true }: Educa
         <SectionWrapper sectionId="education" style={{ marginTop: `${globalSettings?.sectionSpacing || 24}px` }}>
             <SectionTitle type="education" globalSettings={globalSettings} showTitle={showTitle} />
             <AnimatePresence mode="popLayout">
-                <div className="flex flex-col gap-6" style={{ marginTop: `${globalSettings?.paragraphSpacing || 16}px` }}>
+                <div className="flex flex-col gap-4" style={{ marginTop: `${globalSettings?.paragraphSpacing || 16}px` }}>
                     {visibleEducation?.map((edu) => (
                         <motion.div key={edu.id} layout="position" className="group">
                             {/* 不对称网格对齐头部 */}
@@ -68,7 +68,7 @@ const EducationSection = ({ education, globalSettings, showTitle = true }: Educa
 
                             {/* 教育描述 */}
                             {hasMeaningfulRichTextContent(edu.description) && (
-                                <motion.div layout="position" className="relative pl-4 mt-2.5">
+                                <motion.div layout="position" className="relative pl-4 mt-1.5">
                                     <div
                                         className="absolute left-0 top-1 bottom-1 w-[1.5px] opacity-20 group-hover:opacity-100 transition-opacity"
                                         style={{ backgroundColor: themeColor }}

@@ -20,7 +20,7 @@ const SelfEvaluationSection = ({ content, globalSettings, showTitle = true }: Se
             <motion.div style={{ marginTop: `${globalSettings?.paragraphSpacing || 16}px` }}>
                 <motion.div 
                     layout="position"
-                    className="relative pl-5 py-2 text-slate-600 prose prose-sm max-w-none prose-p:my-1 [&>ul]:pl-4 [&>ul]:mt-1 [&>ul>li]:my-0.5 marker:text-slate-400 bg-slate-50/30 rounded-r-xl"
+                    className="relative pl-5 py-1 text-slate-600 prose prose-sm max-w-none prose-p:my-1 [&>ul]:pl-4 [&>ul]:mt-1 [&>ul>li]:my-0.5 marker:text-slate-400 bg-slate-50/30 rounded-r-xl"
                 >
                     {/* 瑞士经典引言左侧实线 */}
                     <div 

@@ -208,6 +208,7 @@ export interface CustomItem {
   description: string;
   visible: boolean;
   datePillStyle?: boolean;
+  descriptionStyle?: "quote" | "card";
 }
 
 export const THEME_COLORS = [

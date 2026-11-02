@@ -17,7 +17,7 @@ const SkillSection = ({ skill, globalSettings, showTitle = true }: SkillSectionP
             <SectionTitle type="skills" globalSettings={globalSettings} showTitle={showTitle} />
             <motion.div style={{ marginTop: `${(globalSettings?.paragraphSpacing || 16) + 6}px` }}>
                 <motion.div
-                    className="text-slate-600 prose prose-sm max-w-none prose-p:my-1 prose-strong:font-bold prose-ul:my-1 prose-li:my-0.5 [&>ul]:pl-4 marker:text-slate-400 pt-2 px-3 rounded-xl bg-slate-50/50 border border-slate-100/50 hover:border-slate-200/60 transition-colors"
+                    className="text-slate-600 prose prose-sm max-w-none prose-p:my-1 prose-strong:font-bold prose-ul:my-1 prose-li:my-0.5 [&>ul]:pl-4 marker:text-slate-400 pt-2 px-3 rounded-xl bg-slate-50/70 border border-slate-100 hover:bg-white hover:shadow-sm hover:border-slate-200 transition-all duration-300"
                     layout="position"
                     style={{
                         fontSize: `${globalSettings?.baseFontSize || 13}px`,

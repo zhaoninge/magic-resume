@@ -31,14 +31,14 @@ const CustomSection = ({ sectionId, title, items, globalSettings, showTitle = tr
                             {/* 不对称网格对齐头部 */}
                             <div className="flex items-baseline justify-between gap-3">
                                 <div className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-3 gap-y-1">
-                                    <h4 
+                                    <h4
                                         className="font-extrabold text-slate-800 tracking-tight"
                                         style={{ fontSize: `${globalSettings?.subheaderSize || 16}px` }}
                                     >
                                         {item.title}
                                     </h4>
                                     {centerSubtitle && (
-                                        <span 
+                                        <span
                                             className="font-medium text-slate-500 border-l border-slate-300 pl-3 text-[14px]"
                                             style={{ fontSize: `${(globalSettings?.subheaderSize || 16) - 1}px` }}
                                         >
@@ -46,7 +46,7 @@ const CustomSection = ({ sectionId, title, items, globalSettings, showTitle = tr
                                         </span>
                                     )}
                                 </div>
-                                <div 
+                                <div
                                     className={`ml-auto self-center font-mono text-slate-400 text-[11px] font-semibold shrink-0 px-2${item.datePillStyle !== false ? " bg-slate-50 border border-slate-100/80 py-0.5 rounded" : ""}`}
                                 >
                                     {formatDateString(item.dateRange, locale, globalSettings?.dateFormat)}
@@ -55,7 +55,7 @@ const CustomSection = ({ sectionId, title, items, globalSettings, showTitle = tr
 
                             {/* 非居中模式下的副标题展示 */}
                             {!centerSubtitle && item.subtitle && (
-                                <div 
+                                <div
                                     className="font-semibold text-slate-500 mt-1 uppercase tracking-wider"
                                     style={{ fontSize: `${(globalSettings?.subheaderSize || 16) - 2}px` }}
                                 >
@@ -65,20 +65,33 @@ const CustomSection = ({ sectionId, title, items, globalSettings, showTitle = tr
 
                             {/* 自定义描述：移除 text-justify 修复列表小点拉伸 bug */}
                             {item.description && (
-                                <motion.div layout="position" className="relative pl-4 mt-1.5">
-                                    <div 
-                                        className="absolute left-0 top-1 bottom-1 w-[1.5px] opacity-20 group-hover:opacity-100 transition-opacity"
-                                        style={{ backgroundColor: themeColor }}
-                                    />
-                                    <div 
-                                        className="text-slate-600 prose prose-sm max-w-none prose-p:my-1 [&>ul]:pl-4 [&>ul]:mt-1 [&>ul>li]:my-0.5 marker:text-slate-400"
-                                        dangerouslySetInnerHTML={{ __html: normalizeRichTextContent(item.description) }}
-                                        style={{ 
-                                            fontSize: `${globalSettings?.baseFontSize || 13}px`, 
-                                            lineHeight: globalSettings?.lineHeight || 1.6 
-                                        }}
-                                    />
-                                </motion.div>
+                                item.descriptionStyle === "card" ? (
+                                    <motion.div layout="position" className="mt-1.5">
+                                        <div
+                                            className="text-slate-600 prose prose-sm max-w-none prose-p:my-1 prose-strong:font-bold prose-ul:my-1 prose-li:my-0.5 [&>ul]:pl-4 marker:text-slate-400 pt-2 px-3 pb-3 rounded-xl bg-slate-50/70 border border-slate-100 hover:bg-white hover:shadow-sm hover:border-slate-200 transition-all duration-300"
+                                            dangerouslySetInnerHTML={{ __html: normalizeRichTextContent(item.description) }}
+                                            style={{
+                                                fontSize: `${globalSettings?.baseFontSize || 13}px`,
+                                                lineHeight: globalSettings?.lineHeight || 1.6
+                                            }}
+                                        />
+                                    </motion.div>
+                                ) : (
+                                    <motion.div layout="position" className="relative pl-4 mt-1.5">
+                                        <div
+                                            className="absolute left-0 top-1 bottom-1 w-[1.5px] opacity-20 group-hover:opacity-100 transition-opacity"
+                                            style={{ backgroundColor: themeColor }}
+                                        />
+                                        <div
+                                            className="text-slate-600 prose prose-sm max-w-none prose-p:my-1 [&>ul]:pl-4 [&>ul]:mt-1 [&>ul>li]:my-0.5 marker:text-slate-400"
+                                            dangerouslySetInnerHTML={{ __html: normalizeRichTextContent(item.description) }}
+                                            style={{
+                                                fontSize: `${globalSettings?.baseFontSize || 13}px`,
+                                                lineHeight: globalSettings?.lineHeight || 1.6
+                                            }}
+                                        />
+                                    </motion.div>
+                                )
                             )}
                         </motion.div>
                     ))}

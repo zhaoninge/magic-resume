@@ -14,6 +14,13 @@ import Field from "../Field";
 import { CustomItem as CustomItemType } from "@/types/resume";
 import ThemeModal from "@/components/shared/ThemeModal";
 import { Switch } from "@/components/ui/switch";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 const CustomItemEditor = ({
   item,
   onSave,
@@ -59,6 +66,27 @@ const CustomItemEditor = ({
               onSave({ ...item, datePillStyle: checked })
             }
           />
+        </div>
+
+        <div className="space-y-1.5">
+          <span className="text-sm text-foreground">详细内容样式</span>
+          <Select
+            value={item.descriptionStyle ?? "quote"}
+            onValueChange={(value) =>
+              onSave({
+                ...item,
+                descriptionStyle: value as "quote" | "card",
+              })
+            }
+          >
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="quote">左侧竖线</SelectItem>
+              <SelectItem value="card">卡片</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <Field

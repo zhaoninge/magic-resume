@@ -1,4 +1,3 @@
-# syntax=docker.io/docker/dockerfile:1
 
 FROM node:20-alpine AS base
 ENV PNPM_HOME="/pnpm"
@@ -7,6 +6,11 @@ RUN npm install -g corepack@latest && corepack enable
 WORKDIR /app
 
 FROM base AS deps
+COPY package.json pnpm-lock.yaml ./
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm config set registry https://registry.npmmirror.com && \
+    pnpm install --frozen-lockfile
+
 COPY package.json pnpm-lock.yaml ./
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 

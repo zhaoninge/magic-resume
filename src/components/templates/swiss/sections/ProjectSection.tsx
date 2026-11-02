@@ -4,7 +4,7 @@ import { ExternalLink } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 import SectionWrapper from "../../shared/SectionWrapper";
 import { Project, GlobalSettings } from "@/types/resume";
-import { normalizeRichTextContent } from "@/lib/richText";
+import { normalizeRichTextContent, hasMeaningfulRichTextContent } from "@/lib/richText";
 import { formatDateString } from "@/lib/utils";
 import { useLocale } from "@/i18n/compat/client";
 import { getProjectLinkMeta } from "@/lib/projectLink";
@@ -24,15 +24,18 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ projects, globalSetting
     return (
         <SectionWrapper sectionId="projects" style={{ marginTop: `${globalSettings?.sectionSpacing || 24}px` }}>
             <SectionTitle type="projects" globalSettings={globalSettings} showTitle={showTitle} />
-            <motion.div layout="position" className="flex flex-col gap-4" style={{ marginTop: `${(globalSettings?.paragraphSpacing || 16) + 10}px` }}>
+            <motion.div layout="position" className="flex flex-col" style={{ marginTop: `${(globalSettings?.paragraphSpacing || 16) + 10}px` }}>
                 <AnimatePresence mode="popLayout">
-                    {visibleProjects.map((project) => {
+                    {visibleProjects.map((project, idx) => {
+                        const hasDescription = hasMeaningfulRichTextContent(project.description);
+                        const isLast = idx === visibleProjects.length - 1;
+                        const itemMb = isLast ? "mb-0" : hasDescription ? "mb-4" : "mb-1";
                         const projectLink = getProjectLinkMeta(project, {
                             preferFullUrl: centerSubtitle,
                         });
 
                         return (
-                            <motion.div key={project.id} layout="position" className="group">
+                            <motion.div key={project.id} layout="position" className={`group ${itemMb}`}>
                                 {/* 项目排版头部 */}
                                 <div className="flex items-baseline justify-between gap-3">
                                     <div className="flex min-w-0 flex-1 flex-wrap items-center gap-x-3 gap-y-1">
@@ -83,7 +86,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ projects, globalSetting
                                 )}
 
                                 {/* 项目描述内容 */}
-                                {project.description && (
+                                {hasDescription && (
                                     <motion.div layout="position" className="relative pl-4 mt-1.5">
                                         <div 
                                             className="absolute left-0 top-1 bottom-1 w-[1.5px] opacity-20 group-hover:opacity-100 transition-opacity"

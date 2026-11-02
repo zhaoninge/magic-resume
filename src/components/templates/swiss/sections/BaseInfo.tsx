@@ -53,12 +53,12 @@ const BaseInfo = ({ basic = {} as BasicInfo, globalSettings, template }: BaseInf
 
     const PhotoComponent = basic.photo && basic.photoConfig?.visible && (
         <motion.div layout="position" className="shrink-0">
-            <div 
-                style={{ 
-                    width: `${basic.photoConfig?.width || 90}px`, 
-                    height: `${basic.photoConfig?.height || 90}px`, 
-                    borderRadius: getBorderRadiusValue(basic.photoConfig || { borderRadius: "none", customBorderRadius: 0 }), 
-                    overflow: "hidden" 
+            <div
+                style={{
+                    width: `${basic.photoConfig?.width || 90}px`,
+                    height: `${basic.photoConfig?.height || 90}px`,
+                    borderRadius: getBorderRadiusValue(basic.photoConfig || { borderRadius: "none", customBorderRadius: 0 }),
+                    overflow: "hidden"
                 }}
                 className="border-2 border-white shadow-md ring-2 ring-slate-100"
             >
@@ -70,25 +70,25 @@ const BaseInfo = ({ basic = {} as BasicInfo, globalSettings, template }: BaseInf
     // 瑞士风格全新的不对称排版样式，完全基于 Framer Motion 实现丝滑的动态排版交互
     const layoutStyles = {
         left: {
-            container: "flex flex-col gap-6 w-full items-start justify-start",
+            container: "flex flex-col gap-3 w-full items-start justify-start",
             headerRow: "flex items-center gap-6 w-full text-left",
             nameTitle: "flex flex-col min-w-0 flex-1 relative pl-5",
             accentBar: "absolute left-0 top-1.5 bottom-1.5 w-1 rounded-sm",
-            cardWrapper: "flex flex-wrap gap-2.5 w-full justify-start mt-2"
+            cardWrapper: "flex flex-wrap gap-2 w-full justify-start mt-0"
         },
         right: {
-            container: "flex flex-col gap-6 w-full items-end justify-start",
+            container: "flex flex-col gap-3 w-full items-end justify-start",
             headerRow: "flex flex-row-reverse items-center gap-6 w-full text-right",
             nameTitle: "flex flex-col min-w-0 flex-1 relative pr-5",
             accentBar: "absolute right-0 top-1.5 bottom-1.5 w-1 rounded-sm",
-            cardWrapper: "flex flex-wrap gap-2.5 w-full justify-end mt-2"
+            cardWrapper: "flex flex-wrap gap-2 w-full justify-end mt-0"
         },
         center: {
-            container: "flex flex-col gap-6 w-full items-center justify-start text-center",
+            container: "flex flex-col gap-3 w-full items-center justify-start text-center",
             headerRow: "flex flex-col items-center gap-4 w-full",
             nameTitle: "flex flex-col items-center min-w-0 w-full relative pb-4",
             accentBar: "absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 rounded-sm",
-            cardWrapper: "flex flex-wrap gap-2.5 w-full justify-center mt-2"
+            cardWrapper: "flex flex-wrap gap-2 w-full justify-center mt-0"
         },
     };
 
@@ -102,24 +102,24 @@ const BaseInfo = ({ basic = {} as BasicInfo, globalSettings, template }: BaseInf
                     {PhotoComponent}
                     <div className={styles.nameTitle}>
                         {/* 瑞士美学标志性几何侧边/底部高亮线，高灵动质感 */}
-                        <motion.div 
+                        <motion.div
                             key={`accent-${layout}`}
                             layout="position"
                             className={styles.accentBar}
                             style={{ backgroundColor: themeColor }}
                         />
                         {nameField.visible !== false && basic[nameField.key] && (
-                            <motion.h1 
-                                layout="position" 
-                                className="font-black tracking-tight whitespace-normal break-normal [overflow-wrap:normal] leading-none text-slate-800" 
-                                style={{ fontSize: "38px" }}
+                            <motion.h1
+                                layout="position"
+                                className="font-black tracking-tight whitespace-normal break-normal [overflow-wrap:normal] leading-none text-slate-800"
+                                style={{ fontSize: "30px" }}
                             >
                                 {basic[nameField.key] as string}
                             </motion.h1>
                         )}
                         {titleField.visible !== false && basic[titleField.key] && (
-                            <motion.h2 
-                                layout="position" 
+                            <motion.h2
+                                layout="position"
                                 className="whitespace-normal break-normal [overflow-wrap:normal] font-bold tracking-widest mt-2.5 text-slate-400 uppercase text-[12px]"
                             >
                                 {basic[titleField.key] as string}
@@ -129,8 +129,8 @@ const BaseInfo = ({ basic = {} as BasicInfo, globalSettings, template }: BaseInf
                 </div>
 
                 {/* 第二排：自适应流式空气卡片群 (Fluid Flexible Capsule Cards) */}
-                <motion.div 
-                    layout="position" 
+                <motion.div
+                    layout="position"
                     className={styles.cardWrapper}
                     style={{ fontSize: `${globalSettings?.baseFontSize || 13}px` }}
                 >
@@ -138,10 +138,10 @@ const BaseInfo = ({ basic = {} as BasicInfo, globalSettings, template }: BaseInf
                         const customFieldHref = item.custom && "href" in item && typeof item.href === "string" ? item.href : null;
 
                         return (
-                            <motion.div 
-                                key={item.key} 
+                            <motion.div
+                                key={item.key}
                                 layout="position"
-                                className="group flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50/70 border border-slate-100 hover:bg-white hover:shadow-sm hover:border-slate-200 transition-all duration-300 min-w-0 max-w-full flex-initial"
+                                className="group flex items-center gap-2 px-3 py-0 rounded-lg bg-slate-50/70 border border-slate-100 hover:bg-white hover:shadow-sm hover:border-slate-200 transition-all duration-300 min-w-0 max-w-full flex-initial"
                             >
                                 {/* 图标 */}
                                 <div className="shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -160,20 +160,20 @@ const BaseInfo = ({ basic = {} as BasicInfo, globalSettings, template }: BaseInf
                                             {item.label}
                                         </span>
                                     )}
-                                    
+
                                     {/* 实际内容值 */}
                                     {customFieldHref ? (
-                                        <a 
-                                            href={customFieldHref} 
-                                            target="_blank" 
-                                            rel="noopener noreferrer" 
+                                        <a
+                                            href={customFieldHref}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             className="font-medium text-slate-600 hover:text-slate-900 underline truncate break-all [overflow-wrap:anywhere]"
                                         >
                                             {item.value}
                                         </a>
                                     ) : item.key === "email" ? (
-                                        <a 
-                                            href={`mailto:${item.value}`} 
+                                        <a
+                                            href={`mailto:${item.value}`}
                                             className={cn("font-medium text-slate-600 hover:text-slate-900 truncate break-all [overflow-wrap:anywhere]", basic.emailUnderline ? "underline" : "no-underline")}
                                         >
                                             {item.value}

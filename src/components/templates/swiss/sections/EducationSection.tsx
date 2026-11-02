@@ -24,9 +24,13 @@ const EducationSection = ({ education, globalSettings, showTitle = true }: Educa
         <SectionWrapper sectionId="education" style={{ marginTop: `${globalSettings?.sectionSpacing || 24}px` }}>
             <SectionTitle type="education" globalSettings={globalSettings} showTitle={showTitle} />
             <AnimatePresence mode="popLayout">
-                <div className="flex flex-col gap-4" style={{ marginTop: `${globalSettings?.paragraphSpacing || 16}px` }}>
-                    {visibleEducation?.map((edu) => (
-                        <motion.div key={edu.id} layout="position" className="group">
+                <div className="flex flex-col" style={{ marginTop: `${(globalSettings?.paragraphSpacing || 16) + 10}px` }}>
+                    {visibleEducation?.map((edu, idx) => {
+                        const hasDescription = hasMeaningfulRichTextContent(edu.description);
+                        const isLast = idx === visibleEducation.length - 1;
+                        const itemMb = isLast ? "mb-0" : hasDescription ? "mb-4" : "mb-1";
+                        return (
+                        <motion.div key={edu.id} layout="position" className={`group ${itemMb}`}>
                             {/* 不对称网格对齐头部 */}
                             <div className="flex items-baseline justify-between gap-3">
                                 <div className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -42,7 +46,7 @@ const EducationSection = ({ education, globalSettings, showTitle = true }: Educa
                                             className="font-medium text-slate-500 border-l border-slate-300 pl-3 text-[14px]"
                                             style={{ fontSize: `${(globalSettings?.subheaderSize || 16) - 1}px` }}
                                         >
-                                            {[edu.major, edu.degree].filter(Boolean).join(" · ")}
+                                            {[edu.degree, edu.major].filter(Boolean).join(" · ")}
                                             {edu.gpa && ` · GPA ${edu.gpa}`}
                                         </span>
                                     )}
@@ -61,13 +65,13 @@ const EducationSection = ({ education, globalSettings, showTitle = true }: Educa
                                     className="font-semibold text-slate-500 mt-1 uppercase tracking-wider"
                                     style={{ fontSize: `${(globalSettings?.subheaderSize || 16) - 2}px` }}
                                 >
-                                    {[edu.major, edu.degree].filter(Boolean).join(" · ")}
+                                    {[edu.degree, edu.major].filter(Boolean).join(" · ")}
                                     {edu.gpa && ` · GPA ${edu.gpa}`}
                                 </div>
                             )}
 
                             {/* 教育描述 */}
-                            {hasMeaningfulRichTextContent(edu.description) && (
+                            {hasDescription && (
                                 <motion.div layout="position" className="relative pl-4 mt-1.5">
                                     <div
                                         className="absolute left-0 top-1 bottom-1 w-[1.5px] opacity-20 group-hover:opacity-100 transition-opacity"
@@ -84,7 +88,8 @@ const EducationSection = ({ education, globalSettings, showTitle = true }: Educa
                                 </motion.div>
                             )}
                         </motion.div>
-                    ))}
+                        );
+                    })}
                 </div>
             </AnimatePresence>
         </SectionWrapper>

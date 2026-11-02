@@ -36,7 +36,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experiences, glob
                                     <div className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-3 gap-y-1">
                                         <SectionLogo src={exp.logo} config={exp.logoConfig} size={globalSettings?.subheaderSize || 16} />
                                         <h4
-                                            className="font-extrabold text-slate-800 tracking-tight"
+                                            className={`${exp.companyBold !== false ? "font-extrabold" : "font-normal"} text-slate-800 tracking-tight`}
                                             style={{ fontSize: `${globalSettings?.subheaderSize || 16}px` }}
                                         >
                                             {exp.company}

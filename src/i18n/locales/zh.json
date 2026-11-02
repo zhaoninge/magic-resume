@@ -803,7 +803,8 @@
         "position": "岗位",
         "date": "工作时间",
         "details": "工作职责",
-        "datePillStyle": "使用胶囊样式"
+        "datePillStyle": "使用胶囊样式",
+        "companyBold": "公司名称加粗"
       },
       "placeholders": {
         "company": "请输入公司名称",

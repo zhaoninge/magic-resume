@@ -847,7 +847,8 @@
         "position": "Position",
         "date": "Employment Period",
         "details": "Job Responsibilities",
-        "datePillStyle": "Pill style"
+        "datePillStyle": "Pill style",
+        "companyBold": "Bold company name"
       },
       "placeholders": {
         "company": "Enter company name",

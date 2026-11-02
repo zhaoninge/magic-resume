@@ -125,6 +125,7 @@ export interface Experience {
   logo?: string;
   logoConfig?: LogoConfig;
   datePillStyle?: boolean;
+  companyBold?: boolean;
 }
 
 export interface Skill {

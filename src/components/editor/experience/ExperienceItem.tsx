@@ -53,6 +53,15 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({
             placeholder={t("placeholders.position")}
           />
         </div>
+        <div className="flex items-center justify-between">
+          <span className="text-sm text-foreground">{t("labels.companyBold")}</span>
+          <Switch
+            checked={experience.companyBold !== false}
+            onCheckedChange={(checked) =>
+              onSave({ ...experience, companyBold: checked })
+            }
+          />
+        </div>
         <div className="bg-card rounded-xl p-3 border border-border">
           <LogoSelector
             logo={experience.logo}

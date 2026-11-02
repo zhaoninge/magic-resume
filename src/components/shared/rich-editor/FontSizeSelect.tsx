@@ -8,7 +8,7 @@ import {
   SelectTrigger,
 } from "@/components/ui/select";
 
-const FONT_SIZES = [12, 13, 14, 15, 16, 18, 20, 24];
+const FONT_SIZES = [8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20, 24];
 
 function readSelection(editor: Editor) {
   const { doc, selection } = editor.state;

@@ -24,7 +24,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experiences, glob
         <SectionWrapper sectionId="experience" style={{ marginTop: `${globalSettings?.sectionSpacing || 24}px` }}>
             <SectionTitle type="experience" globalSettings={globalSettings} showTitle={showTitle} />
             <AnimatePresence mode="popLayout">
-                <div className="flex flex-col gap-4" style={{ marginTop: `${globalSettings?.paragraphSpacing || 16}px` }}>
+                <div className="flex flex-col gap-4" style={{ marginTop: `${(globalSettings?.paragraphSpacing || 16) + 10}px` }}>
                     {visibleExperiences?.map((exp) => (
                         <motion.div key={exp.id} layout="position" className="group">
                             {/* 不对称网格对齐头部 */}

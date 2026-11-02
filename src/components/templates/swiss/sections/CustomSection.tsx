@@ -20,12 +20,13 @@ const CustomSection = ({ sectionId, title, items, globalSettings, showTitle = tr
     const visibleItems = items?.filter((item) => item.visible && (item.title || item.description));
     const centerSubtitle = globalSettings?.centerSubtitle;
     const themeColor = globalSettings?.themeColor || "#E31C24";
+    const hasCardStyle = (visibleItems || []).some((item) => item.descriptionStyle === "card");
 
     return (
         <SectionWrapper sectionId={sectionId} style={{ marginTop: `${globalSettings?.sectionSpacing || 24}px` }}>
             <SectionTitle title={title} type="custom" globalSettings={globalSettings} showTitle={showTitle} />
             <AnimatePresence mode="popLayout">
-                <div className="flex flex-col gap-4" style={{ marginTop: `${globalSettings?.paragraphSpacing || 16}px` }}>
+                <div className="flex flex-col gap-4" style={{ marginTop: `${(globalSettings?.paragraphSpacing || 16) + (hasCardStyle ? 0 : 6)}px` }}>
                     {visibleItems.map((item) => (
                         <motion.div key={item.id} layout="position" className="group">
                             {/* 不对称网格对齐头部 */}
@@ -68,7 +69,7 @@ const CustomSection = ({ sectionId, title, items, globalSettings, showTitle = tr
                                 item.descriptionStyle === "card" ? (
                                     <motion.div layout="position" className="mt-1.5">
                                         <div
-                                            className="text-slate-600 prose prose-sm max-w-none prose-p:my-1 prose-strong:font-bold prose-ul:my-1 prose-li:my-0.5 [&>ul]:pl-4 marker:text-slate-400 pt-2 px-3 pb-3 rounded-xl bg-slate-50/70 border border-slate-100 hover:bg-white hover:shadow-sm hover:border-slate-200 transition-all duration-300"
+                                            className="text-slate-600 prose prose-sm max-w-none prose-p:my-1 prose-strong:font-bold prose-ul:my-1 prose-li:my-0.5 [&>ul]:pl-4 marker:text-slate-400 pt-2 px-3 pb-2 rounded-xl bg-slate-50/70 border border-slate-100 hover:bg-white hover:shadow-sm hover:border-slate-200 transition-all duration-300"
                                             dangerouslySetInnerHTML={{ __html: normalizeRichTextContent(item.description) }}
                                             style={{
                                                 fontSize: `${globalSettings?.baseFontSize || 13}px`,

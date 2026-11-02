@@ -3,6 +3,7 @@ import React from "react";
 import { Pencil } from "lucide-react";
 import { motion } from "framer-motion";
 import { useResumeStore } from "@/store/useResumeStore";
+import { useTranslations } from "@/i18n/compat/client";
 import { cn } from "@/lib/utils";
 import BasicPanel from "./basic/BasicPanel";
 import { preloadRichTextEditor } from "./Field";
@@ -80,10 +81,17 @@ export function EditPanel() {
   const updateMenuSections = useResumeStore(
     (state) => state.updateMenuSections
   );
+  const t = useTranslations("workbench.sidePanel");
   if (!resumeId) return;
 
   const renderFields = () => {
     switch (activeSection) {
+      case "page-break":
+        return (
+          <div className="p-4 text-sm text-muted-foreground">
+            {t("layout.pageBreakHint")}
+          </div>
+        );
       case "basic":
         return <BasicPanel />;
 

@@ -244,6 +244,28 @@ export function SidePanel({
                     </button>
                   ))}
 
+                  {/* Page Break Module */}
+                  {!menuSections.some((s: MenuSection) => s.id === "page-break") && (
+                    <button
+                      onClick={() => {
+                        const newSection = {
+                          id: "page-break",
+                          title: t("layout.pageBreak"),
+                          icon: "📄",
+                          enabled: true,
+                          order: menuSections.length,
+                        };
+                        updateMenuSections([...menuSections, newSection]);
+                        setActiveSection("page-break");
+                        onSectionCreated?.();
+                      }}
+                      className="flex items-center gap-2 px-3 py-2 text-sm rounded-md hover:bg-accent transition-colors text-left"
+                    >
+                      <span className="text-lg">📄</span>
+                      <span>{t("layout.pageBreak")}</span>
+                    </button>
+                  )}
+
                   {/* Divider for Custom Section */}
                   {filteredModules.length > 0 && (
                     <div className="h-px bg-border my-1" />

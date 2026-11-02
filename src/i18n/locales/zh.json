@@ -678,6 +678,8 @@
         "title": "布局",
         "addCustomSection": "添加模块",
         "addCustomSectionOption": "添加自定义模块",
+        "pageBreak": "分页",
+        "pageBreakHint": "导出 PDF 或打印时，会从此处开始新的一页。",
         "standardSections": {
           "skills": "专业技能",
           "experience": "工作经验",

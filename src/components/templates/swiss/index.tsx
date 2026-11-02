@@ -12,6 +12,7 @@ import CustomSection from "./sections/CustomSection";
 import SectionTitle from "./sections/SectionTitle";
 import SectionWrapper from "../shared/SectionWrapper";
 import CertificatesSection from "../shared/CertificatesSection";
+import PageBreakSection from "../shared/PageBreakSection";
 
 interface SwissTemplateProps {
     data: ResumeData;
@@ -24,6 +25,8 @@ const SwissTemplate: React.FC<SwissTemplateProps> = ({ data, template }) => {
 
     const renderSection = (sectionId: string) => {
         switch (sectionId) {
+            case "page-break":
+                return <PageBreakSection />;
             case "basic":
                 return <BaseInfo basic={data.basic} globalSettings={data.globalSettings} template={template} />;
             case "experience":

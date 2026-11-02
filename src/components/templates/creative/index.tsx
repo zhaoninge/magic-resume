@@ -13,6 +13,7 @@ import CustomSection from "./sections/CustomSection";
 import SectionTitle from "./sections/SectionTitle";
 import SectionWrapper from "../shared/SectionWrapper";
 import CertificatesSection from "../shared/CertificatesSection";
+import PageBreakSection from "../shared/PageBreakSection";
 
 
 interface CreativeTemplateProps {
@@ -29,6 +30,8 @@ const CreativeTemplate: React.FC<CreativeTemplateProps> = ({ data, template }) =
 
     const renderSection = (sectionId: string) => {
         switch (sectionId) {
+            case "page-break":
+                return <PageBreakSection />;
             case "experience":
                 return <ExperienceSection experiences={data.experience} globalSettings={data.globalSettings} />;
             case "education":

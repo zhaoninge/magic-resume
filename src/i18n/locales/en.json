@@ -725,6 +725,8 @@
         "title": "Layout",
         "addCustomSection": "Add Module",
         "addCustomSectionOption": "Add Custom Section",
+        "pageBreak": "Page Break",
+        "pageBreakHint": "A new page starts here in PDF export and printing.",
         "standardSections": {
           "skills": "Skills",
           "experience": "Experience",

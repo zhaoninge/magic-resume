@@ -10,6 +10,7 @@ import { ChevronDown, Eye, EyeOff, GripVertical, Trash2 } from "lucide-react";
 import { useCallback, useState } from "react";
 import Field from "../Field";
 import { Experience } from "@/types/resume";
+import { Switch } from "@/components/ui/switch";
 import ThemeModal from "@/components/shared/ThemeModal";
 import { useResumeStore } from "@/store/useResumeStore";
 import { useTranslations } from "@/i18n/compat/client";
@@ -79,6 +80,15 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({
           placeholder={t("placeholders.date")}
           showPresentSwitch={true}
         />
+        <div className="flex items-center justify-between">
+          <span className="text-sm text-foreground">{t("labels.datePillStyle")}</span>
+          <Switch
+            checked={experience.datePillStyle !== false}
+            onCheckedChange={(checked) =>
+              onSave({ ...experience, datePillStyle: checked })
+            }
+          />
+        </div>
         <Field
           label={t("labels.details")}
           value={experience.details}

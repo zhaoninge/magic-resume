@@ -112,6 +112,7 @@ export interface Education {
   visible?: boolean;
   logo?: string;
   logoConfig?: LogoConfig;
+  datePillStyle?: boolean;
 }
 
 export interface Experience {
@@ -123,6 +124,7 @@ export interface Experience {
   visible?: boolean;
   logo?: string;
   logoConfig?: LogoConfig;
+  datePillStyle?: boolean;
 }
 
 export interface Skill {
@@ -140,6 +142,7 @@ export interface Project {
   visible: boolean;
   link?: string;
   linkLabel?: string;
+  datePillStyle?: boolean;
 }
 
 export interface Certificate {
@@ -203,6 +206,7 @@ export interface CustomItem {
   dateRange: string;
   description: string;
   visible: boolean;
+  datePillStyle?: boolean;
 }
 
 export const THEME_COLORS = [

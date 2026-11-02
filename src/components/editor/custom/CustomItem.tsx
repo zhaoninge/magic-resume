@@ -13,6 +13,7 @@ import Field from "../Field";
 
 import { CustomItem as CustomItemType } from "@/types/resume";
 import ThemeModal from "@/components/shared/ThemeModal";
+import { Switch } from "@/components/ui/switch";
 const CustomItemEditor = ({
   item,
   onSave,
@@ -49,6 +50,16 @@ const CustomItemEditor = ({
           type="date-range"
           placeholder="例如: 2023.01 - 2024.01"
         />
+
+        <div className="flex items-center justify-between">
+          <span className="text-sm text-foreground">使用胶囊样式</span>
+          <Switch
+            checked={item.datePillStyle !== false}
+            onCheckedChange={(checked) =>
+              onSave({ ...item, datePillStyle: checked })
+            }
+          />
+        </div>
 
         <Field
           label="详细描述"

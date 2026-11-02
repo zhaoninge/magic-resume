@@ -47,7 +47,7 @@ const CustomSection = ({ sectionId, title, items, globalSettings, showTitle = tr
                                     )}
                                 </div>
                                 <div 
-                                    className="ml-auto self-center font-mono text-slate-400 bg-slate-50 border border-slate-100/80 px-2 py-0.5 rounded text-[11px] font-semibold shrink-0"
+                                    className={`ml-auto self-center font-mono text-slate-400 text-[11px] font-semibold shrink-0 px-2${item.datePillStyle !== false ? " bg-slate-50 border border-slate-100/80 py-0.5 rounded" : ""}`}
                                 >
                                     {formatDateString(item.dateRange, locale, globalSettings?.dateFormat)}
                                 </div>

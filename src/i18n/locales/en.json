@@ -846,7 +846,8 @@
         "company": "Company Name",
         "position": "Position",
         "date": "Employment Period",
-        "details": "Job Responsibilities"
+        "details": "Job Responsibilities",
+        "datePillStyle": "Pill style"
       },
       "placeholders": {
         "company": "Enter company name",
@@ -890,7 +891,8 @@
         "description": "Project Description",
         "technologies": "Tech Stack",
         "link": "Project Link",
-        "linkLabel": "Display Text"
+        "linkLabel": "Display Text",
+        "datePillStyle": "Pill style"
       },
       "placeholders": {
         "name": "Enter project name",
@@ -941,7 +943,8 @@
         "gpa": "GPA",
         "location": "Location",
         "startDate": "Start Date",
-        "endDate": "End Date"
+        "endDate": "End Date",
+        "datePillStyle": "Pill style"
       },
       "placeholders": {
         "school": "Enter school name",

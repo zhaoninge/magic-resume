@@ -14,6 +14,7 @@ import ThemeModal from "@/components/shared/ThemeModal";
 import { useTranslations } from "@/i18n/compat/client";
 import { Project } from "@/types/resume";
 import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
 
 interface ProjectEditorProps {
   project: Project;
@@ -90,6 +91,15 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ project, onSave }) => {
           placeholder={t("placeholders.date")}
           showPresentSwitch={true}
         />
+        <div className="flex items-center justify-between">
+          <span className="text-sm text-foreground">{t("labels.datePillStyle")}</span>
+          <Switch
+            checked={project.datePillStyle !== false}
+            onCheckedChange={(checked) =>
+              onSave({ ...project, datePillStyle: checked })
+            }
+          />
+        </div>
         <Field
           label={t("labels.description")}
           value={project.description}

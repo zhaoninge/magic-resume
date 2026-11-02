@@ -802,7 +802,8 @@
         "company": "公司名称",
         "position": "岗位",
         "date": "工作时间",
-        "details": "工作职责"
+        "details": "工作职责",
+        "datePillStyle": "使用胶囊样式"
       },
       "placeholders": {
         "company": "请输入公司名称",
@@ -847,7 +848,8 @@
         "date": "项目时间",
         "description": "项目描述",
         "link": "项目链接",
-        "linkLabel": "显示文字"
+        "linkLabel": "显示文字",
+        "datePillStyle": "使用胶囊样式"
       },
       "placeholders": {
         "name": "请输入项目名称",
@@ -896,7 +898,8 @@
         "description": "学校简介",
         "gpa": "GPA",
         "startDate": "开始时间",
-        "endDate": "结束时间"
+        "endDate": "结束时间",
+        "datePillStyle": "使用胶囊样式"
       },
       "placeholders": {
         "school": "请输入学校名称",

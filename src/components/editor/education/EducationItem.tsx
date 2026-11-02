@@ -14,6 +14,7 @@ import Field from "../Field";
 import ThemeModal from "@/components/shared/ThemeModal";
 import { useTranslations } from "@/i18n/compat/client";
 import LogoSelector from "@/components/shared/LogoSelector";
+import { Switch } from "@/components/ui/switch";
 
 interface EducationEditorProps {
   education: Education;
@@ -104,6 +105,16 @@ const EducationEditor: React.FC<EducationEditorProps> = ({
             type="date"
             placeholder="YYYY-MM"
             showPresentSwitch={true}
+          />
+        </div>
+
+        <div className="flex items-center justify-between">
+          <span className="text-sm text-foreground">{t("labels.datePillStyle")}</span>
+          <Switch
+            checked={education.datePillStyle !== false}
+            onCheckedChange={(checked) =>
+              onSave({ ...education, datePillStyle: checked })
+            }
           />
         </div>
 
